@@ -1,19 +1,19 @@
 # chat-client
-Uma conexão de cliente para servidor usando sockets
+A client-to-server connection using sockets 
 
-# instalação ⬇️
+# installation  ⬇️
 ```
 pkg i nodejs
 pkg i git
 git clone https://github.com/Swag666baby/chat-client
 ```
 
-# acesso 🔌
+# access  🔌
 ```
 cd chat-client
 ```
 
-# servidor🌐
+# server 🌐
 ```
 node chat.js
 ```
