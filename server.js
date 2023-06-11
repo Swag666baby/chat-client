@@ -8,10 +8,10 @@ function send(message){
 }
 
 const handleConnection = socket => {
-    send("alguem entrou no chat")
+    send("someone joined the chat")
     sockets.push(socket)
     socket.on('end', () =>{
-        send("um usuario se desconectou :/")
+        send("someone disconnected :/")
         sockets.splice(sockets.indexOf(socket), 1)
     })
     socket.on('data', data=> {
@@ -20,4 +20,4 @@ const handleConnection = socket => {
 }
 
 const server = net.createServer(handleConnection)
-server.listen(4000, () => console.log("servidor iniciado."))
+server.listen(4000, () => console.log("server running."))
