@@ -15,10 +15,10 @@ cd chat-client
 
 # server 🌐
 ```
-node chat.js
+node server
 ```
 
 # client👤
 ```
-node client.js
+node client
 ```
