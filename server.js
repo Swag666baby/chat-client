@@ -1,11 +1,5 @@
 const net = require('net')
-const express = require("express")
-const app = express()
 let sockets = []
-
-app.get("/", (req, res)=>{
-    res.send({"stats": "running"})
-})
 
 function send(message){
     sockets.forEach(connection => {
@@ -14,10 +8,10 @@ function send(message){
 }
 
 const handleConnection = socket => {
-    send("alguem entrou no chat")
+    send("someone joined the chat")
     sockets.push(socket)
     socket.on('end', () =>{
-        send("um usuario se desconectou :/")
+        send("someone disconnected :/")
         sockets.splice(sockets.indexOf(socket), 1)
     })
     socket.on('data', data=> {
@@ -26,5 +20,4 @@ const handleConnection = socket => {
 }
 
 const server = net.createServer(handleConnection)
-server.listen(4000, () => console.log("servidor iniciado."))
-app.listen(4001)
+server.listen(4000, () => console.log("server running."))
