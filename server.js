@@ -1,10 +1,4 @@
 const net = require('net')
-const express = require("express")
-const app = express();
-
-app.get("/", (req, res) => {
-    res.send({"stats":"running"});
-})
 
 let sockets = []
 function send(message){
@@ -27,4 +21,3 @@ const handleConnection = socket => {
 
 const server = net.createServer(handleConnection)
 server.listen(4000, () => console.log("server running."))
-app.listen(3000)
