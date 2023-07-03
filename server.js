@@ -1,6 +1,12 @@
 const net = require('net')
-let sockets = []
+const express = require("express")
+const app = express();
 
+app.get("/", function(req, res){
+    res.send({"stats":"running"});
+})
+
+let sockets = []
 function send(message){
     sockets.forEach(connection => {
         connection.write(message)
@@ -21,3 +27,4 @@ const handleConnection = socket => {
 
 const server = net.createServer(handleConnection)
 server.listen(4000, () => console.log("server running."))
+app.listen(3000)
